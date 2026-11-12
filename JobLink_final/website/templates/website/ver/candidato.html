@@ -1,0 +1,3 @@
+{% extends "website/modelo.html" %}
+{% block titulo %}{{ object.nome }} | JobLink{% endblock %}
+{% block conteudo %}<div class="card p-4 p-lg-5"><div class="d-flex gap-3 align-items-center mb-4"><div class="company-logo"><i class="bi bi-person"></i></div><div><h1 class="h2 fw-bold mb-1">{{ object.nome }}</h1><p class="text-primary mb-0">{{ object.titulo_profissional }}</p></div></div><p class="text-muted">{{ object.cidade }}</p><h2 class="h5 fw-bold">Resumo profissional</h2><p>{{ object.resumo|linebreaks }}</p>{% if object.linkedin %}<a href="{{ object.linkedin }}" target="_blank">Perfil profissional</a>{% endif %}</div>{% endblock %}

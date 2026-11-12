@@ -1,0 +1,19 @@
+runtime: python312
+entrypoint: gunicorn -b :$PORT pw2026.wsgi --workers 1 --threads 6 --worker-class gthread
+
+env_variables:
+  DJANGO_DEBUG: "0"
+  DJANGO_ALLOWED_HOSTS: ".appspot.com"
+  # Configure DJANGO_SECRET_KEY, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD and
+  # DATABASE_URL as protected environment variables/secrets before deployment.
+
+handlers:
+- url: /static
+  static_dir: static_gcloud/
+
+- url: /.*
+  script: auto
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 2

@@ -1,0 +1,14 @@
+{% extends "website/modelo.html" %}
+{% block titulo %}Candidatos | JobLink{% endblock %}
+{% block conteudo %}
+<h1 class="h2 fw-bold mb-4">Candidatos</h1>
+<div class="card p-3">
+<table id="tabela-candidatos" class="table table-striped table-hover align-middle w-100">
+<thead><tr><th>Nome</th><th>Título profissional</th><th>Cidade</th><th>Perfil</th></tr></thead>
+<tbody>
+{% for candidato in object_list %}
+<tr><td>{{ candidato.nome }}</td><td>{{ candidato.titulo_profissional|default:"Profissional" }}</td><td>{{ candidato.cidade|default:"-" }}</td><td><a href="{% url 'candidato_detail' candidato.pk %}" class="btn btn-sm btn-outline-primary">Ver perfil</a></td></tr>
+{% empty %}<tr><td colspan="4">Nenhum candidato cadastrado.</td></tr>{% endfor %}
+</tbody></table></div>
+{% include "website/includes/pagination.html" %}
+{% endblock %}

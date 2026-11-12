@@ -1,0 +1,15 @@
+{% extends "website/modelo.html" %}
+{% block titulo %}Notificações | JobLink{% endblock %}
+{% block conteudo %}
+<h1 class="h2 fw-bold mb-4">Minhas notificações</h1>
+<div class="list-group">
+{% for notificacao in notificacoes %}
+<a class="list-group-item list-group-item-action {% if not notificacao.lida %}fw-bold{% endif %}" href="{% url 'notificacao_detail' notificacao.pk %}">
+<div class="d-flex justify-content-between"><strong>{{ notificacao.titulo }}</strong><small>{{ notificacao.criada_em|date:"d/m/Y H:i" }}</small></div>
+<p class="mb-1">{{ notificacao.mensagem|truncatewords:25 }}</p>
+<span class="small text-muted">{% if notificacao.lida %}Lida{% else %}Não lida{% endif %}</span>
+</a>
+{% empty %}<div class="alert alert-info">Você ainda não possui notificações.</div>{% endfor %}
+</div>
+{% include "website/includes/pagination.html" %}
+{% endblock %}

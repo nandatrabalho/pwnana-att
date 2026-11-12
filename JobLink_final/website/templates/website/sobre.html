@@ -1,0 +1,13 @@
+{% extends "website/modelo.html" %}
+{% load static %}
+{% block titulo %}Sobre | JobLink{% endblock %}
+{% block conteudo %}
+<div class="card p-4 p-lg-5 mb-4">
+<h1 class="h2 fw-bold">Sobre o projeto</h1>
+<p class="lead">O <strong>JobLink</strong> é uma plataforma inspirada em redes profissionais como o LinkedIn, desenvolvida em Django para conectar empresas que publicam vagas a candidatos que desejam encontrar oportunidades de trabalho.</p>
+<p>Empresas podem criar seu perfil, publicar e gerenciar vagas e consultar as candidaturas recebidas. Candidatos podem montar um perfil profissional, pesquisar vagas, enviar candidaturas e acompanhar o andamento de cada processo seletivo. O sistema utiliza autenticação, grupos de usuários, relacionamentos entre modelos e consultas com QuerySets.</p>
+<div class="row g-3 mt-2"><div class="col-md-4"><div class="stat"><b>Tecnologias</b><br><span class="text-muted">Python · Django · Bootstrap</span></div></div><div class="col-md-4"><div class="stat"><b>Arquitetura</b><br><span class="text-muted">Models · Class-Based Views · Templates</span></div></div><div class="col-md-4"><div class="stat"><b>Objetivo</b><br><span class="text-muted">Conectar talentos e empresas</span></div></div></div>
+</div>
+<div class="card p-4 mb-4"><h2 class="h4 fw-bold">Diagrama de caso de uso</h2><p class="text-muted">Principais atores e funcionalidades do sistema.</p><img class="diagram" src="{% static 'website/img/diagrama_caso_uso.png' %}" alt="Diagrama de caso de uso do JobLink"></div>
+<div class="card p-4"><h2 class="h4 fw-bold">Diagrama de classes</h2><p class="text-muted">Classes principais e seus relacionamentos.</p><img class="diagram" src="{% static 'website/img/diagrama_classes.png' %}" alt="Diagrama de classes do JobLink"></div>
+{% endblock %}

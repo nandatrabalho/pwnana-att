@@ -1,0 +1,3 @@
+{% extends "website/modelo.html" %}
+{% block titulo %}Candidaturas recebidas | JobLink{% endblock %}
+{% block conteudo %}<h1 class="h2 fw-bold mb-4">Candidaturas recebidas</h1><div class="table-responsive card"><table class="table mb-0"><thead><tr><th>Vaga</th><th>Candidato</th><th>Status</th><th>Data</th></tr></thead><tbody>{% for c in object_list %}<tr><td>{{ c.vaga.titulo }}</td><td>{{ c.candidato.nome }}</td><td>{{ c.get_status_display }}</td><td>{{ c.candidata_em|date:"d/m/Y" }}</td></tr>{% empty %}<tr><td colspan="4" class="text-center py-5">Nenhuma candidatura recebida.</td></tr>{% endfor %}</tbody></table></div>{% include "website/includes/pagination.html" %}{% endblock %}
